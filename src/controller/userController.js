@@ -39,10 +39,7 @@ export const postLogin = passport.authenticate("local", {
   failureFlash: "Can't log in. Check email and/or password"
 });
 
-export const githubLogin = passport.authenticate("github", {
-  successFlash: "Welcome",
-  failureFlash: "Can't log in at this time"
-});
+export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
@@ -75,7 +72,7 @@ export const postGithubLogin = (req, res) => {
 };
 
 export const facebookLogin = passport.authenticate("facebook", {
-  successFlash: "Welcome",
+  successFlash: "Welcome to MY Wetube with Facebook 😍😍",
   failureFlash: "Can't log in at this time"
 });
 
