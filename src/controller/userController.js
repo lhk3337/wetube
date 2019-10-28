@@ -31,6 +31,7 @@ export const postJoin = async (req, res, next) => {
 
 export const getLogin = (req, res) =>
   res.render("login", { pageTitle: "Log In" });
+
 export const postLogin = passport.authenticate("local", {
   failureRedirect: routes.login,
   successRedirect: routes.home,
@@ -39,7 +40,7 @@ export const postLogin = passport.authenticate("local", {
 });
 
 export const githubLogin = passport.authenticate("github", {
-  successFlash: "Welcome to MY Wetube with Github 😍😍",
+  successFlash: "Welcome",
   failureFlash: "Can't log in at this time"
 });
 
@@ -74,7 +75,7 @@ export const postGithubLogin = (req, res) => {
 };
 
 export const facebookLogin = passport.authenticate("facebook", {
-  successFlash: "Welcome to MY Wetube with Facebook 😍😍",
+  successFlash: "Welcome",
   failureFlash: "Can't log in at this time"
 });
 
@@ -150,7 +151,7 @@ export const postEditProfile = async (req, res) => {
       email,
       avatarUrl: file ? file.location : req.user.avatarUrl
     });
-    req.flash("success", "Prifile updated");
+    req.flash("success", "Profile updated");
     res.redirect(routes.me);
   } catch (error) {
     req.flash("error", "Can't update profile");
