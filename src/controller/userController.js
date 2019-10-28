@@ -35,7 +35,7 @@ export const getLogin = (req, res) =>
 export const postLogin = passport.authenticate("local", {
   failureRedirect: routes.login,
   successRedirect: routes.home,
-  successFlash: "Welcome to MY Wetube 😍😍",
+  successFlash: "Welcome to MY Wetube ❤️",
   failureFlash: "Can't log in. Check email and/or password"
 });
 
@@ -71,10 +71,7 @@ export const postGithubLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const facebookLogin = passport.authenticate("facebook", {
-  successFlash: "Welcome to MY Wetube with Facebook 😍😍",
-  failureFlash: "Can't log in at this time"
-});
+export const facebookLogin = passport.authenticate("facebook");
 
 export const facebookLoginCallback = async (_, __, profile, cb) => {
   const {

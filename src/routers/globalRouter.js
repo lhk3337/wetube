@@ -33,6 +33,8 @@ globalRouter.get(routes.gitHub, githubLogin);
 globalRouter.get(
   routes.githubCallback,
   passport.authenticate("github", {
+    successFlash: "Welcome to MY Wetube with Github ❤️",
+    failureFlash: "Can't log in at this time",
     failureRedirect: "/login"
   }),
   postGithubLogin
@@ -42,7 +44,11 @@ globalRouter.get(routes.me, getMe);
 globalRouter.get(routes.facebook, facebookLogin);
 globalRouter.get(
   routes.facebookCallback,
-  passport.authenticate("facebook", { failureRedirect: "/login" }),
+  passport.authenticate("facebook", {
+    successFlash: "Welcome to MY Wetube with Facebook ❤️",
+    failureFlash: "Can't log in at this time",
+    failureRedirect: "/login"
+  }),
   postFacebookLogin
 );
 
