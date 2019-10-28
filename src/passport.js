@@ -27,7 +27,7 @@ passport.use(
     {
       clientID: process.env.FB_ID,
       clientSecret: process.env.FB_SECRET,
-      callbackURL: `https://popular-fireant-61.localtunnel.me${routes.facebookCallback}`,
+      callbackURL: `https://arcane-castle-95031.herokuapp.com${routes.facebookCallback}`,
       profileFields: ["id", "displayName", "photos", "email"],
       scope: ["public_profile", "email"]
     },
